@@ -16,7 +16,9 @@ def enviar_mensaje(mensaje, modelo="deepseek-chat"):
     data = {
         "model": modelo,
         "messages": [
-            {"role": "system", "content": "Eres un genio para la electrónica y para sistemas/software, enfocado en sistemas digitales con una actitud bastante inteligente y clara con lo que explica."}, 
+            {"role": "system", "content": "Eres un genio para la electrónica y para sistemas/software, enfocado en sistemas digitales, sobre todo en los temas:
+            Criptografía homomórfica práctica y su impacto en los sistemas digitales, DNA data storage y su impacto en los sistemas digitales e
+            Interfaces hápticas de ultrasonido. Con una actitud bastante inteligente y clara con lo que explica."}, 
             {"role": "user", "content": mensaje},
         ],
     }
@@ -35,7 +37,7 @@ def generar_audio(texto, filename="respuesta.mp3"):
 
 st.set_page_config(page_title="Pepper Tech News", layout="wide")
 
-st.markdown("<h1 style='text-align: center; color: white; background: linear-gradient(75deg, #2DB1C4, #0242A3); padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white; background: linear-gradient(75deg, #0242A3, #2DB1C4); padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER</h1>", unsafe_allow_html=True)
 st.write("")
 col1, col2 = st.columns([1, 2])
 
@@ -67,7 +69,7 @@ with col2:
 st.write("---")
 st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
 
-entrada = st.chat_input("Que dudas tienes sobre lo dicho por Pepper")
+entrada = st.chat_input("¿Que dudas tienes sobre los temas relacionado?")
 
 if st.button("Enviar") and entrada:
     respuesta = enviar_mensaje(entrada)
