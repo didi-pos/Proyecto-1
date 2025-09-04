@@ -71,6 +71,7 @@ st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
 entrada = st.chat_input("¿Que dudas tienes sobre los temas relacionado?")
 
 if entrada:
+    st.markdown(f"**👤 Tú:** {entrada}")
     respuesta = enviar_mensaje(entrada)
     st.markdown(f"**🤖 Chatbot:** {respuesta}")
     audio_file = generar_audio(respuesta)
