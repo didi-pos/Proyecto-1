@@ -32,13 +32,11 @@ def generar_audio(texto, filename="respuesta.mp3"):
     return filename
 
 # Dashboard
-
+🧐
 st.set_page_config(page_title="Pepper Tech News", layout="wide")
 
-st.markdown("<h1 style='text-align: center; color: white; background-color: #FFB703; padding: 15px; border-radius: 15px;'>🤖 Presentando Novedades Tecnológicas con Pepper</h1>", unsafe_allow_html=True)
-
+st.markdown("<h1 style='text-align: center; color: white; background-color: #FFB703; padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER 🧐</h1>", unsafe_allow_html=True)
 st.write("")
-
 col1, col2 = st.columns([1, 2])
 
 # Primera Parte
@@ -53,15 +51,15 @@ with col1:
 
 with col2:
     with st.container():
-        st.markdown("### 🔴 Novedad Tecnológica 1")
+        st.markdown("### 🔴 Criptografía homomórfica práctica y su impacto en los sistemas digitales")
         st.info("Aquí puedes escribir una breve descripción de la novedad tecnológica 1.")
     st.write("")
     with st.container():
-        st.markdown("### 🔵 Novedad Tecnológica 2")
+        st.markdown("### 🔵 DNA data storage y su impacto en los sistemas digitales")
         st.success("Aquí puedes escribir una breve descripción de la novedad tecnológica 2.")
     st.write("")
     with st.container():
-        st.markdown("### 🟢 Novedad Tecnológica 3")
+        st.markdown("### 🟢 Interfaces hápticas de ultrasonido")
         st.warning("Aquí puedes escribir una breve descripción de la novedad tecnológica 3.")
 
 # Tercera Parte
@@ -76,15 +74,6 @@ entrada = st.text_input("✍️ Escribe tu pregunta:")
 
 if st.button("Enviar") and entrada:
     respuesta = enviar_mensaje(entrada)
-    st.session_state.historial.append(("Tú", entrada))
-    st.session_state.historial.append(("Chatbot", respuesta))
     st.markdown(f"**🤖 Chatbot:** {respuesta}")
     audio_file = generar_audio(respuesta)
     st.audio(audio_file, format="audio/mp3")
-
-st.write("### 📜 Historial de Conversación")
-for rol, texto in st.session_state.historial:
-    if rol == "Tú":
-        st.markdown(f"**👤 {rol}:** {texto}")
-    else:
-        st.markdown(f"**🤖 {rol}:** {texto}")
