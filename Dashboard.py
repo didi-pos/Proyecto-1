@@ -3,6 +3,8 @@ import requests
 from gtts import gTTS
 import os
 
+# Chatbot
+
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
 API_URL = "https://api.deepseek.com/v1/chat/completions"
 
@@ -29,6 +31,8 @@ def generar_audio(texto, filename="respuesta.mp3"):
     tts.save(filename)
     return filename
 
+# Dashboard
+
 st.set_page_config(page_title="Pepper Tech News", layout="wide")
 
 st.markdown("<h1 style='text-align: center; color: white; background-color: #FFB703; padding: 15px; border-radius: 15px;'>🤖 Presentando Novedades Tecnológicas con Pepper</h1>", unsafe_allow_html=True)
@@ -37,25 +41,30 @@ st.write("")
 
 col1, col2 = st.columns([1, 2])
 
+# Primera Parte
+
 with col1:
-    st.image("https://i.imgur.com/tpepper.png", caption="Pepper Robot", use_column_width=True)
     st.markdown("<div style='text-align: center; margin-top: 15px;'>", unsafe_allow_html=True)
     if st.button("🎬 Iniciar Video"):
         st.video("https://www.youtube.com/watch?v=7LNLsQW1_9I")
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True
+
+# Segunda Parte
 
 with col2:
     with st.container():
-        st.markdown("### 🔸 Novedad Tecnológica 1")
+        st.markdown("### 🔴 Novedad Tecnológica 1")
         st.info("Aquí puedes escribir una breve descripción de la novedad tecnológica 1.")
     st.write("")
     with st.container():
-        st.markdown("### 🔹 Novedad Tecnológica 2")
+        st.markdown("### 🔵 Novedad Tecnológica 2")
         st.success("Aquí puedes escribir una breve descripción de la novedad tecnológica 2.")
     st.write("")
     with st.container():
         st.markdown("### 🟢 Novedad Tecnológica 3")
         st.warning("Aquí puedes escribir una breve descripción de la novedad tecnológica 3.")
+
+# Tercera Parte
 
 st.write("---")
 st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
