@@ -16,9 +16,7 @@ def enviar_mensaje(mensaje, modelo="deepseek-chat"):
     data = {
         "model": modelo,
         "messages": [
-            {"role": "system", "content": "Eres un genio para la electrónica y para sistemas/software, enfocado en sistemas digitales, sobre todo en los temas de
-            Criptografía homomórfica práctica y su impacto en los sistemas digitales, DNA data storage y su impacto en los sistemas digitales e
-            Interfaces hápticas de ultrasonido. Con una actitud bastante inteligente y clara con lo que explica."}, 
+            {"role": "system", "content": "Eres un genio para la electrónica y para sistemas/software, enfocado en sistemas digitales, sobre todo en los temas: Criptografía homomórfica práctica y su impacto en los sistemas digitales, DNA data storage y su impacto en los sistemas digitales eInterfaces hápticas de ultrasonido. Con una actitud bastante inteligente y clara con lo que explica."}, 
             {"role": "user", "content": mensaje},
         ],
     }
