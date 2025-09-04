@@ -43,8 +43,9 @@ col1, col2 = st.columns([1, 2])
 
 with col1:
     st.markdown("<div style='text-align: center; margin-top: 15px;'>", unsafe_allow_html=True)
-    if st.button("🎬 Iniciar Video"):
-        st.video("https://www.youtube.com/watch?v=7LNLsQW1_9I")
+    video_placeholder = st.empty()
+    if st.button("🎬 Iniciar Video", use_container_width=True):
+        video_placeholder.video("https://www.youtube.com/watch?v=7LNLsQW1_9I")
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Segunda Parte
@@ -69,7 +70,7 @@ st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
 
 entrada = st.chat_input("¿Que dudas tienes sobre los temas relacionado?")
 
-if st.button("Enviar") and entrada:
+if entrada:
     respuesta = enviar_mensaje(entrada)
     st.markdown(f"**🤖 Chatbot:** {respuesta}")
     audio_file = generar_audio(respuesta)
