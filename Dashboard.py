@@ -47,7 +47,7 @@ with col1:
     st.markdown("<div style='text-align: center; margin-top: 15px;'>", unsafe_allow_html=True)
     if st.button("🎬 Iniciar Video"):
         st.video("https://www.youtube.com/watch?v=7LNLsQW1_9I")
-    st.markdown("</div>", unsafe_allow_html=True
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # Segunda Parte
 
