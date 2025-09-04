@@ -35,7 +35,7 @@ def generar_audio(texto, filename="respuesta.mp3"):
 
 st.set_page_config(page_title="Pepper Tech News", layout="wide")
 
-st.markdown("<h1 style='text-align: center; color: white; background-color: #FFB703; padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white; background: linear-gradient(75deg, #258CCC, #004D7D); padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER</h1>", unsafe_allow_html=True)
 st.write("")
 col1, col2 = st.columns([1, 2])
 
