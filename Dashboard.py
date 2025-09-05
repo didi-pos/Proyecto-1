@@ -53,15 +53,15 @@ with col1:
 with col2:
     with st.container():
         st.markdown("### 🔴 Criptografía homomórfica práctica y su impacto en los sistemas digitales")
-        st.info("Aquí puedes escribir una breve descripción de la novedad tecnológica 1.")
+        st.info("Permite realizar operaciones sobre datos cifrados sin necesidad de descifrarlos. Esto mejora la seguridad y privacidad en sistemas digitales, especialmente en la nube y servicios donde se manejan datos sensibles.")
     st.write("")
     with st.container():
         st.markdown("### 🔵 DNA data storage y su impacto en los sistemas digitales")
-        st.success("Aquí puedes escribir una breve descripción de la novedad tecnológica 2.")
+        st.success("Consiste en almacenar información digital dentro de moléculas de ADN. Ofrece una capacidad enorme y duradera de almacenamiento en comparación con los métodos tradicionales, lo que puede revolucionar cómo guardamos grandes volúmenes de datos en el futuro.")
     st.write("")
     with st.container():
         st.markdown("### 🟢 Interfaces hápticas de ultrasonido")
-        st.warning("Aquí puedes escribir una breve descripción de la novedad tecnológica 3.")
+        st.warning("Usan ondas ultrasónicas para generar sensaciones táctiles en el aire, sin necesidad de contacto físico. Esto permite nuevas formas de interacción con dispositivos digitales, con aplicaciones en realidad virtual, medicina y accesibilidad.")
 
 # Tercera Parte
 
