@@ -49,15 +49,15 @@ with col1:
 with col2:
     with st.container():
         st.markdown("### 🔴 Criptografía homomórfica práctica y su impacto en los sistemas digitales")
-        st.info("La criptografía homomórfica permite **realizar operaciones matemáticas directamente sobre datos cifrados**, obteniendo un resultado que, al descifrarse, es el mismo que si se hubiera operado con los datos originales. Esto abre enormes posibilidades en seguridad y privacidad: hospitales, bancos y servicios en la nube pueden analizar información sensible sin nunca verla en claro. Así, protege datos personales y corporativos en un mundo cada vez más interconectado.")
+        st.info("La criptografía homomórfica permite hacer operaciones matemáticas directamente sobre datos cifrados sin necesidad de descifrarlos. Esto protege la privacidad y seguridad en servicios digitales como bancos, hospitales y la nube. Así, los datos sensibles nunca se exponen en claro, aumentando la confianza en sistemas digitales.")
     st.write("")
     with st.container():
         st.markdown("### 🔵 DNA data storage y su impacto en los sistemas digitales")
-        st.success("El almacenamiento en ADN busca guardar información digital dentro de moléculas biológicas. Cada gramo de ADN puede almacenar hasta **215 millones de GB**, siendo una solución prácticamente ilimitada y estable durante miles de años. Frente a la creciente demanda de datos en la era digital, esta tecnología podría sustituir a los discos duros tradicionales, ofreciendo sostenibilidad, durabilidad y eficiencia energética.")
+        st.success("El almacenamiento en ADN busca guardar información digital dentro de moléculas biológicas. Un solo gramo de ADN puede contener hasta 215 millones de GB, con gran durabilidad y estabilidad. Es una alternativa sostenible y eficiente que podría reemplazar discos duros tradicionales en el futuro.")
     st.write("")
     with st.container():
         st.markdown("### 🟢 Interfaces hápticas de ultrasonido")
-        st.warning("Las interfaces hápticas de ultrasonido generan sensaciones táctiles en el aire mediante ondas ultrasónicas, **sin necesidad de contacto físico**. Esto permite que el usuario “sienta” botones o superficies virtuales flotando en el espacio. Sus aplicaciones incluyen realidad virtual inmersiva, control médico sin contacto (como en cirugías estériles) y sistemas accesibles para personas con discapacidad visual, abriendo un nuevo paradigma de interacción humano-computadora.")
+        st.warning("Estas interfaces generan sensaciones táctiles en el aire usando ondas ultrasónicas, sin necesidad de contacto físico. Permiten que el usuario “toque” botones o superficies virtuales flotantes en el espacio. Tienen aplicaciones en realidad virtual, medicina sin contacto y accesibilidad para personas con discapacidad.")
 
 # Tercera Parte
 st.write("---")
