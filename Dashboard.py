@@ -3,6 +3,7 @@ import requests
 from gtts import gTTS
 import os
 
+# Chatbot
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
 API_URL = "https://api.deepseek.com/v1/chat/completions"
 
@@ -14,7 +15,7 @@ def enviar_mensaje(mensaje, modelo="deepseek-chat"):
     data = {
         "model": modelo,
         "messages": [
-            {"role": "system", "content": "Eres un genio para la electrónica y sistemas digitales."}, 
+            {"role": "system", "content": "Eres un genio para la electrónica y para sistemas/software, enfocado en sistemas digitales, sobre todo en los temas: Criptografía homomórfica práctica y su impacto en los sistemas digitales, DNA data storage y su impacto en los sistemas digitales e Interfaces hápticas de ultrasonido. Con una actitud bastante inteligente y clara con lo que explica."}, 
             {"role": "user", "content": mensaje},
         ],
     }
@@ -29,27 +30,56 @@ def generar_audio(texto, filename="respuesta.mp3"):
     tts.save(filename)
     return filename
 
-# -------- UI --------
-st.markdown("## 💬 Chat con Pepper")
+# Dashboard
+st.set_page_config(page_title="Pepper Tech News", layout="wide")
 
-col1, col2 = st.columns([4,1])
+st.markdown("<h1 style='text-align: center; color: white; background: linear-gradient(75deg, #0242A3, #2DB1C4); padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER</h1>", unsafe_allow_html=True)
+st.write("")
+col1, col2 = st.columns([1, 2])
+
+# Primera Parte
 with col1:
-    user_input = st.text_input("Escribe tu pregunta:", key="input_text")
+    st.markdown("<div style='text-align: center; margin-top: 15px;'>", unsafe_allow_html=True)
+    video_placeholder = st.empty()
+    if st.button("🎬 Iniciar Video", use_container_width=True):
+        video_placeholder.video("https://www.youtube.com/watch?v=7LNLsQW1_9I")
+    st.markdown("</div>", unsafe_allow_html=True)
 
+# Segunda Parte
 with col2:
-    c1, c2 = st.columns(2)
-    with c1:
-        send_btn = st.button("📩 Enviar")
-    with c2:
-        mic_btn = st.button("🎤 Audio")
+    with st.container():
+        st.markdown("### 🔴 Criptografía homomórfica práctica y su impacto en los sistemas digitales")
+        st.info("La criptografía homomórfica permite **realizar operaciones matemáticas directamente sobre datos cifrados**, obteniendo un resultado que, al descifrarse, es el mismo que si se hubiera operado con los datos originales. Esto abre enormes posibilidades en seguridad y privacidad: hospitales, bancos y servicios en la nube pueden analizar información sensible sin nunca verla en claro. Así, protege datos personales y corporativos en un mundo cada vez más interconectado.")
+    st.write("")
+    with st.container():
+        st.markdown("### 🔵 DNA data storage y su impacto en los sistemas digitales")
+        st.success("El almacenamiento en ADN busca guardar información digital dentro de moléculas biológicas. Cada gramo de ADN puede almacenar hasta **215 millones de GB**, siendo una solución prácticamente ilimitada y estable durante miles de años. Frente a la creciente demanda de datos en la era digital, esta tecnología podría sustituir a los discos duros tradicionales, ofreciendo sostenibilidad, durabilidad y eficiencia energética.")
+    st.write("")
+    with st.container():
+        st.markdown("### 🟢 Interfaces hápticas de ultrasonido")
+        st.warning("Las interfaces hápticas de ultrasonido generan sensaciones táctiles en el aire mediante ondas ultrasónicas, **sin necesidad de contacto físico**. Esto permite que el usuario “sienta” botones o superficies virtuales flotando en el espacio. Sus aplicaciones incluyen realidad virtual inmersiva, control médico sin contacto (como en cirugías estériles) y sistemas accesibles para personas con discapacidad visual, abriendo un nuevo paradigma de interacción humano-computadora.")
 
-# -------- lógica --------
-if send_btn and user_input:
-    st.markdown(f"**👤 Tú:** {user_input}")
-    respuesta = enviar_mensaje(user_input)
-    st.markdown(f"**🤖 Pepper:** {respuesta}")
+# Tercera Parte
+st.write("---")
+st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
+col1, col2 = st.columns([1, 5])
+
+
+with col1:
+    entrada = st.chat_input("Escribe aquí tu pregunta...")
+with col2:
+    from streamlit_mic_recorder import speech_to_text
+    voice_text = speech_to_text(
+        language="es",
+        just_once=True,
+        use_container_width=True,
+        key="voz",
+    )
+
+if entrada or voice_text:
+    texto_usuario = entrada if entrada else voice_text
+    st.markdown(f"**👤 Tú:** {texto_usuario}")
+    respuesta = enviar_mensaje(texto_usuario)
+    st.markdown(f"**🤖 Chatbot:** {respuesta}")
     audio_file = generar_audio(respuesta)
     st.audio(audio_file, format="audio/mp3")
-
-if mic_btn:
-    st.info("🎤 Aquí iría la lógica de reconocimiento de voz (se puede integrar con Web Speech API o librerías externas).")
