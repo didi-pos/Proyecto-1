@@ -62,17 +62,18 @@ with col2:
 # Tercera Parte
 st.write("---")
 st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
+col1, col2 = st.columns([1, 5])
 
-col_chat, col_audio = st.columns([4,1])
-
-with col_chat:
+with col1:
+    from streamlit_mic_recorder import speech_to_text
+    voice_text = speech_to_text(
+        language="es",
+        just_once=True,
+        use_container_width=True,
+        key="voz",
+    )
+with col2:
     entrada = st.chat_input("Escribe aquí tu pregunta...")
-
-with col_audio:
-    # Necesita instalar streamlit-mic-recorder
-    from streamlit_mic_recorder import mic_recorder, speech_to_text
-    st.write("🎙️ Hablar")
-    voice_text = speech_to_text(language="es", use_container_width=True, just_once=True, key="voz")
 
 if entrada or voice_text:
     texto_usuario = entrada if entrada else voice_text
@@ -81,3 +82,4 @@ if entrada or voice_text:
     st.markdown(f"**🤖 Chatbot:** {respuesta}")
     audio_file = generar_audio(respuesta)
     st.audio(audio_file, format="audio/mp3")
+
