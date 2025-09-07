@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 from gtts import gTTS
+from streamlit_mic_recorder import speech_to_text
 import os
 
 # Chatbot
@@ -59,26 +60,62 @@ with col2:
         st.markdown("### 🟢 Interfaces hápticas de ultrasonido")
         st.warning("Las interfaces hápticas de ultrasonido generan sensaciones táctiles en el aire mediante ondas ultrasónicas, **sin necesidad de contacto físico**. Esto permite que el usuario “sienta” botones o superficies virtuales flotando en el espacio. Sus aplicaciones incluyen realidad virtual inmersiva, control médico sin contacto (como en cirugías estériles) y sistemas accesibles para personas con discapacidad visual, abriendo un nuevo paradigma de interacción humano-computadora.")
 
-# Tercera Parte
-st.write("---")
 st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
-col1, col2 = st.columns([5, 1])  # texto largo, botón pequeño
+
+# CSS para que todo quede en una sola barra
+st.markdown("""
+<style>
+.chat-container {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+.chat-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+}
+.send-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Contenedor con barra de texto + botón enviar + botón micro
+col1, col2, col3 = st.columns([8, 1, 1])
 
 with col1:
-    entrada = st.text_input("Escribe aquí tu pregunta...", key="texto_usuario")
+    entrada = st.text_input("", placeholder="Escribe aquí tu pregunta...", key="texto_usuario")
+
 with col2:
-    from streamlit_mic_recorder import speech_to_text
+    enviar = st.button("➡️", key="enviar_texto")
+
+with col3:
     voice_text = speech_to_text(
         language="es",
         just_once=True,
         use_container_width=True,
         key="voz",
     )
-    
-if entrada or voice_text:
-    texto_usuario = entrada if entrada else voice_text
+
+# Lógica: prioriza texto escrito, si no usa voz
+texto_usuario = None
+if enviar and entrada:
+    texto_usuario = entrada
+elif voice_text:
+    texto_usuario = voice_text
+
+if texto_usuario:
     st.markdown(f"**👤 Tú:** {texto_usuario}")
-    respuesta = enviar_mensaje(texto_usuario)
+    respuesta = f"Respuesta de prueba a: {texto_usuario}"  # aquí llamas tu función enviar_mensaje()
     st.markdown(f"**🤖 Chatbot:** {respuesta}")
-    audio_file = generar_audio(respuesta)
-    st.audio(audio_file, format="audio/mp3")
