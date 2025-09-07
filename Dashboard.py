@@ -46,7 +46,7 @@ with col1:
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Segunda Parte
-with col2:
+with co2:
     with st.container():
         st.markdown("### 🔴 Criptografía homomórfica práctica y su impacto en los sistemas digitales")
         st.info("La criptografía homomórfica permite hacer operaciones matemáticas directamente sobre datos cifrados sin necesidad de descifrarlos. Esto protege la privacidad y seguridad en servicios digitales como bancos, hospitales y la nube. Así, los datos sensibles nunca se exponen en claro, aumentando la confianza en sistemas digitales.")
@@ -65,6 +65,8 @@ st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
 col1, col2 = st.columns([1, 5])
 
 with col1:
+    entrada = st.chat_input("Escribe aquí tu pregunta...")
+with col2:
     from streamlit_mic_recorder import speech_to_text
     voice_text = speech_to_text(
         language="es",
@@ -72,8 +74,6 @@ with col1:
         use_container_width=True,
         key="voz",
     )
-with col2:
-    entrada = st.chat_input("Escribe aquí tu pregunta...")
 
 if entrada or voice_text:
     texto_usuario = entrada if entrada else voice_text
