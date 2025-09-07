@@ -62,11 +62,10 @@ with col2:
 # Tercera Parte
 st.write("---")
 st.markdown("## 💬 ¿Tienes dudas? Consulta con tu chatbot de confianza 🤖")
-col1, col2 = st.columns([5, 1])
-
+col1, col2 = st.columns([5, 1])  # texto largo, botón pequeño
 
 with col1:
-    entrada = st.chat_input("Escribe aquí tu pregunta...")
+    entrada = st.text_input("Escribe aquí tu pregunta...", key="texto_usuario")
 with col2:
     from streamlit_mic_recorder import speech_to_text
     voice_text = speech_to_text(
@@ -75,7 +74,7 @@ with col2:
         use_container_width=True,
         key="voz",
     )
-
+    
 if entrada or voice_text:
     texto_usuario = entrada if entrada else voice_text
     st.markdown(f"**👤 Tú:** {texto_usuario}")
