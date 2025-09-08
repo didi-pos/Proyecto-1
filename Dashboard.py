@@ -36,7 +36,7 @@ st.set_page_config(page_title="Pepper Tech News", layout="wide")
 
 st.markdown("<h1 style='text-align: center; color: white; background: linear-gradient(75deg, #0242A3, #2DB1C4); padding: 15px; border-radius: 15px;'>El reportero o reportera PEPPER</h1>", unsafe_allow_html=True)
 st.write("")
-col1, col2 = st.columns([2, 2])
+col1, col2 = st.columns([1.5, 2.5])
 
 # Primera Parte
 with col1:
@@ -58,7 +58,7 @@ with col1:
         st.markdown("<div style='text-align: center; margin-top: 15px;'>", unsafe_allow_html=True)
         video_placeholder = st.empty()
         if st.button("🎬 Iniciar Video", use_container_width=True):
-            video_placeholder.video("https://youtu.be/EB7G3fUUaeA?si=HLmjqXmob46hCTOH")
+            video_placeholder.video("https://youtu.be/WbXeMxcVCuY?si=o4GHMz8mb1nJjh8S")
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Segunda Parte
