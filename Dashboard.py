@@ -58,7 +58,7 @@ with col1:
     video_placeholder = st.empty()
     if st.button("🎬 Iniciar Video", use_container_width=True):
         video_placeholder.video(
-            "https://youtu.be/EB7G3fUUaeA?si=HLmjqXmob46hCTOH", 
+            "https://youtu.be/WbXeMxcVCuY?si=o4GHMz8mb1nJjh8S", 
             format="video/mp4", 
             start_time=0
         )
