@@ -54,7 +54,6 @@ with col1:
     st.write("")
     st.write("")
     st.write("")
-    st.markdown("<div style='text-align: center; margin-top: 15px;'>", unsafe_allow_html=True)
     video_placeholder = st.empty()
     if st.button("🎬 Iniciar Video", use_container_width=True):
         video_placeholder.video(
