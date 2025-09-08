@@ -50,7 +50,7 @@ with col1:
         video_placeholder = st.empty()
         if st.button("🎬 Iniciar Video", use_container_width=True):
             st.components.v1.iframe(
-            "https://www.youtube.com/embed/EB7G3fUUaeA?si=HLmjqXmob46hCTOH",
+            "https://youtu.be/WbXeMxcVCuY?si=haNnoty3fwT26_zW",
             width=600,
             height=400
             )
