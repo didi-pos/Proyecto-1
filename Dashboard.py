@@ -60,7 +60,7 @@ with col1:
         if st.button("🎬 Iniciar Video", use_container_width=True):
             st.components.v1.iframe(
             "https://www.youtube.com/embed/EB7G3fUUaeA?si=HLmjqXmob46hCTOH",
-            width=600,
+            width="100%",
             height=400
             )
         st.markdown("</div>", unsafe_allow_html=True)
