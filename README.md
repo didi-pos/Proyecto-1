@@ -1,7 +1,4 @@
 # Proyecto-1
-## Streamlit
-[Dashboard en Streamlit.app](https://proyecto-1-esyuh7edsqrsns4cevqbxn.streamlit.app/)
-##Proyecto 1 Presentación Interactiva con Pepper  
 
 Este proyecto consiste en la programación de una **presentación interactiva** para el robot Pepper, en la cual se combinan voz, gestos y el uso de la tablet integrada para explicar de manera dinámica tres temas tecnológicos de gran relevancia:  
 
@@ -20,3 +17,5 @@ El código fue implementado en **Python** utilizando las librerías oficiales de
 
 Cada bloque del programa está diseñado para que Pepper actúe de manera natural, primero introduce el tema con una imagen en la tablet, luego acompaña sus palabras con gestos programados y finalmente desarrolla el guion escrito.  
 
+## Streamlit
+[Dashboard en Streamlit.app](https://proyecto-1-esyuh7edsqrsns4cevqbxn.streamlit.app/)
